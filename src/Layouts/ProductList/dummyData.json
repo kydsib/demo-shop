@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "title": "Producto 1",
+        "price": 1000,
+        "description": "Semillas",
+        "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://api.lorem.space/image?w=640&h=480&r=5378"
+        },
+        "images": [
+        "https://api.lorem.space/image?w=640&h=480&r=3909",
+        "https://api.lorem.space/image?w=640&h=480&r=5987",
+        "https://api.lorem.space/image?w=640&h=480&r=7945"
+        ]
+        },
+        {
+        "id": 2,
+        "title": "Tasty Frozen Chicken",
+        "price": 90,
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "category": {
+        "id": 4,
+        "name": "Shoes",
+        "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=4831"
+        },
+        "images": [
+        "https://api.lorem.space/image/shoes?w=640&h=480&r=7291",
+        "https://api.lorem.space/image/shoes?w=640&h=480&r=820",
+        "https://api.lorem.space/image/shoes?w=640&h=480&r=1930"
+        ]
+        },
+        {
+        "id": 3,
+        "title": "Licensed Steel Soap",
+        "price": 351,
+        "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+        "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://api.lorem.space/image?w=640&h=480&r=5378"
+        },
+        "images": [
+        "https://api.lorem.space/image?w=640&h=480&r=1877",
+        "https://api.lorem.space/image?w=640&h=480&r=8378",
+        "https://api.lorem.space/image?w=640&h=480&r=6354"
+        ]
+        },
+        {
+        "id": 4,
+        "title": "Rustic Concrete Salad",
+        "price": 205,
+        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+        "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://api.lorem.space/image?w=640&h=480&r=5378"
+        },
+        "images": [
+        "https://api.lorem.space/image?w=640&h=480&r=5936",
+        "https://api.lorem.space/image?w=640&h=480&r=9426",
+        "https://api.lorem.space/image?w=640&h=480&r=2511"
+        ]
+        },
+        {
+        "id": 5,
+        "title": "Incredible Steel Cheese",
+        "price": 627,
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "category": {
+        "id": 4,
+        "name": "Shoes",
+        "image": "https://api.lorem.space/image/shoes?w=640&h=480&r=4831"
+        },
+        "images": [
+        "https://api.lorem.space/image/shoes?w=640&h=480&r=3774",
+        "https://api.lorem.space/image/shoes?w=640&h=480&r=8570",
+        "https://api.lorem.space/image/shoes?w=640&h=480&r=1416"
+        ]
+        },
+        {
+        "id": 6,
+        "title": "Refined Metal Fish",
+        "price": 734,
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+        "category": {
+        "id": 2,
+        "name": "Electronics",
+        "image": "https://api.lorem.space/image/watch?w=640&h=480&r=6654"
+        },
+        "images": [
+        "https://api.lorem.space/image/watch?w=640&h=480&r=115",
+        "https://api.lorem.space/image/watch?w=640&h=480&r=8981",
+        "https://api.lorem.space/image/watch?w=640&h=480&r=5558"
+        ]
+        }
+]
