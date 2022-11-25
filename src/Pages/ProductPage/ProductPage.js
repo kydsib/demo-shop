@@ -1,22 +1,40 @@
 
 import {useParams} from 'react-router-dom'
-import Navigation from '../../components/Nav/Nav'
+import { useDispatch, useSelector } from 'react-redux'
+// import { useState } from 'react'
 
-import dummyData from '../../Layouts/ProductList/dummyData.json'
+import Navigation from '../../components/Nav/Nav'
+// import { addItemToCart } from '../../store/cart/cart.actions'
+import { selectProducts } from '../../store/ProductsStore/products.selectros'
 
 import './ProductPage.css'
 
-function ProductPage() {
-    const params = useParams()
-    // console.info(params)
-    const productData = dummyData.find(item => item.id.toString() === params.id)
-    console.info(productData)
 
-    // const productImages = productData.
-    // will need to take id from router?
+function ProductPage() {
+  const dispatch = useDispatch()
+  // const [isLoading, setIsLoading] = useState(false) 
+  const storedData = useSelector(selectProducts);
+  
+  // if (storedData.length > 0 && isLoading) {
+  //   setIsLoading(false)
+  // } else {
+  //   setIsLoading(true)
+  // }
+  function updateCart() {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: productData
+    })
+  }
+
+    const params = useParams()
+
+    const productData = storedData.find(item => item.id.toString() === params.id)
+
     return (
-        <>
-         <Navigation />
+
+          <>
+          <Navigation />
         <div className="2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9 px-4">
   <div id="viewerButton" className="hidden w-full flex justify-center">
     <button  className="bg-white text-indigo-600 shadow-md rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 py-5 px-10 font-semibold">Open Quick View</button>
@@ -42,15 +60,15 @@ function ProductPage() {
           <div className="slide-ana lg:relative">
           {/* style="transform: translateX(-100%)" */}
             <div className="flex" >
-              <img src={productData.images[0]} alt="A black chair with wooden legs" className="w-full h-full" />
+              <img src={productData?.images[0]} alt="A black chair with wooden legs" className="w-full h-full" />
             </div>
             {/* style="transform: translateX(0%)" */}
             <div className="flex" >
-              <img src={productData.images[1]} alt="A black chair with wooden legs" className="w-full h-full" />
+              <img src={productData?.images[1]} alt="A black chair with wooden legs" className="w-full h-full" />
             </div>
             {/* style="transform: translateX(100%)" */}
             <div className="flex" >
-              <img src={productData.images[2]} alt="A black chair with wooden legs" className="w-full h-full" />
+              <img src={productData?.images[2]} alt="A black chair with wooden legs" className="w-full h-full" />
             </div>
           </div>
         </div>
@@ -63,11 +81,13 @@ function ProductPage() {
         </div>
       </div>
       <div className="lg:w-1/2 flex flex-col justify-center mt-7 md:mt-8 lg:mt-0 pb-8 lg:pb-0">
-        <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white">{productData.title}</h1>
-        <p className="text-base leading-normal text-gray-600 dark:text-white mt-2">{productData.description}</p>
+        <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800 dark:text-white">{productData?.title}</h1>
+        <p className="text-base leading-normal text-gray-600 dark:text-white mt-2">{productData?.description}</p>
         <p className="text-3xl font-medium text-gray-600 dark:text-white mt-8 md:mt-10"></p>
         <div className="flex items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8 mt-8 md:mt-16">
-          <button className="w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none text-white uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200">Add to Cart</button>
+          <button 
+            onClick={updateCart}
+            className="w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none text-white uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200">Add to Cart</button>
           <button className="w-full md:w-2/5 border border-gray-800 text-base font-medium leading-none text-gray-800 dark:text-white uppercase py-6 bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 dark:bg-transparent dark:border-white dark:text-white focus:ring-gray-800 hover:bg-gray-800 hover:text-white dark:hover:bg-gray-800 ">View Details</button>
         </div>
         <div className="mt-6">
@@ -78,6 +98,8 @@ function ProductPage() {
   </div>
 </div>
 </>
+
+
     )
 }
 

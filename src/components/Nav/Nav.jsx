@@ -1,10 +1,13 @@
+import { useState } from 'react';
+
 import { FiShoppingCart } from 'react-icons/fi';
 import Button from '../Button/Button';
 import Burger from '../Burger/Burger'
 
+
 import './Nav.css'
-import logo from './logo192.png'
-import { useState } from 'react';
+
+
 
 
 function Navigation(){
@@ -19,7 +22,7 @@ function Navigation(){
             <div className="main-nav__header">
             <div className="logo">
             <a href='/'> 
-                <img src={logo} alt="" />
+                <img src="https://static-cse.canva.com/_next/static/assets/logo_w2000xh641_3b021976d60d0277e95febf805ad9fe8c7d6d54f86969ec03b83299084b7cb93.png" alt="" />
             </a>
             
         </div>
@@ -44,7 +47,7 @@ function Navigation(){
             <a href='/cart'>
                 <FiShoppingCart className='cart' size={24} />
             </a>
-            <Burger  getStateToParent={toggleNav}/>
+            <Burger  getStateToParent={toggleNav} />
         </div>
         </div>
         {/* add transitions for navigation showing and disappearing */}

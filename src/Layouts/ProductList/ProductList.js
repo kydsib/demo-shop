@@ -1,13 +1,15 @@
+import { useSelector } from 'react-redux'
 
-import dummyData from './dummyData.json'
 import Navigation from '../../components/Nav/Nav'
 import ProductCard from '../../components/ProductCard/ProductCard'
+import { selectProducts } from '../../store/ProductsStore/products.selectros'
 
 import './ProductList.css'
 
 function ProductList({categoryName}) {
+    const storedData = useSelector(selectProducts);
 
-    const itemList = dummyData.map((item) => 
+    const itemList = storedData.map((item) => 
         <ProductCard key={item.id}  props={item} />)
 
     return (
