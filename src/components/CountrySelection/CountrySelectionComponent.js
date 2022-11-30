@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+// import useGetCountries from "../../utils/useGetCountires";
 
 import ListOfCountries from "./ListOfCountries"
 import SelectedCountry from "./SelectedCountry"
@@ -6,6 +7,7 @@ import SelectedCountry from "./SelectedCountry"
 function CountrySelection() {
  
   const [countries, setCountries] = useState([]);
+
   const [selectedCountry, setSelectedCountry] = useState();
   const [savedCountry, setSavedCountry] = useState(null);
   useEffect(() => {
@@ -47,7 +49,6 @@ function selectCountry(item){
 
 function saveSelectedCountry(item) {
   setSavedCountry(item)
-  console.info(item, 'item from saveSelectedCountry')
 }
 
     return (

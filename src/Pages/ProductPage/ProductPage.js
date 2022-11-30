@@ -1,10 +1,10 @@
 
 import {useParams} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-// import { useState } from 'react'
+
 
 import Navigation from '../../components/Nav/Nav'
-// import { addItemToCart } from '../../store/cart/cart.actions'
+import CART_ACTION_TYPES from '../../store/cart/cart.types'
 import { selectProducts } from '../../store/ProductsStore/products.selectros'
 
 import './ProductPage.css'
@@ -12,18 +12,19 @@ import './ProductPage.css'
 
 function ProductPage() {
   const dispatch = useDispatch()
-  // const [isLoading, setIsLoading] = useState(false) 
+
   const storedData = useSelector(selectProducts);
   
-  // if (storedData.length > 0 && isLoading) {
-  //   setIsLoading(false)
-  // } else {
-  //   setIsLoading(true)
-  // }
-  function updateCart() {
+  function addItemToCart() {
+    // console.info(amount, 'new amount')
+    // const quantity = amount ? amount : 1
+
     dispatch({
-      type: "ADD_TO_CART",
-      payload: productData
+      type: CART_ACTION_TYPES.ADD_TO_CART,
+      payload: {
+        ...productData,
+        quantity: 1
+      } 
     })
   }
 
@@ -86,7 +87,7 @@ function ProductPage() {
         <p className="text-3xl font-medium text-gray-600 dark:text-white mt-8 md:mt-10"></p>
         <div className="flex items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8 mt-8 md:mt-16">
           <button 
-            onClick={updateCart}
+            onClick={() => addItemToCart()}
             className="w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none text-white uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200">Add to Cart</button>
           <button className="w-full md:w-2/5 border border-gray-800 text-base font-medium leading-none text-gray-800 dark:text-white uppercase py-6 bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 dark:bg-transparent dark:border-white dark:text-white focus:ring-gray-800 hover:bg-gray-800 hover:text-white dark:hover:bg-gray-800 ">View Details</button>
         </div>

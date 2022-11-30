@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FiShoppingCart } from 'react-icons/fi';
 import Button from '../Button/Button';
 import Burger from '../Burger/Burger'
+import ToggleButton from '../ToggleButton/ToggleButton';
 
 
 import './Nav.css'
@@ -21,9 +23,11 @@ function Navigation(){
         <nav className='main-nav'>
             <div className="main-nav__header">
             <div className="logo">
-            <a href='/'> 
+            <Link to='/'> 
                 <img src="https://static-cse.canva.com/_next/static/assets/logo_w2000xh641_3b021976d60d0277e95febf805ad9fe8c7d6d54f86969ec03b83299084b7cb93.png" alt="" />
-            </a>
+            </Link>
+
+
             
         </div>
         <div className="desktop-nav">
@@ -44,9 +48,10 @@ function Navigation(){
         </div>
         <div className="menu-mobile">
         {/* add number with items in the cart  */}
-            <a href='/cart'>
+            <ToggleButton />
+            <Link to='/cart'>
                 <FiShoppingCart className='cart' size={24} />
-            </a>
+            </Link>
             <Burger  getStateToParent={toggleNav} />
         </div>
         </div>

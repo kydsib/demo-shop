@@ -1,6 +1,23 @@
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import Button from '../Button/Button';
+import CART_ACTION_TYPES from '../../store/cart/cart.types';
+
 function ProductCard({props}) {
+
+	const dispatch = useDispatch();
+
+	function addItemToCart() {
+		dispatch({
+			type: CART_ACTION_TYPES.ADD_TO_CART,
+			payload: {
+				...props,
+				quantity: 1
+			} 
+		})
+	}
+
 	const titleForUrl = props.title.split(' ').join('-').toLowerCase();
     return (
 <li className="max-w-2xl mx-auto">
@@ -12,8 +29,8 @@ function ProductCard({props}) {
 					<h3 className="text-gray-900 mb-2.5 font-semibold text-xl tracking-tight dark:text-white">{props.title}</h3>
 				<div className="flex items-center justify-between">
 					<span className="text-3xl font-bold text-gray-900 dark:text-white">$ {props.price}</span>
-					<a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
-						to cart</a>
+					<Button clicked={addItemToCart}  text="Add to cart"/>
+					
 				</div>
 			</div>
 	</div>
